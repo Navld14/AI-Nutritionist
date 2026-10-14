@@ -1,11 +1,13 @@
 # 🥗 AI Nutritionist
 
-Snap a photo of any meal and instantly get calories, macros, a health score, and personalized nutritional advice — powered by Claude's vision AI.
+Snap a photo of any meal and instantly get calories, macros, a health score, and personalized nutritional advice — powered by Google Gemini Vision AI.
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square&logo=python)
-![Claude Vision](https://img.shields.io/badge/Claude-Vision_API-orange?style=flat-square)
+![Gemini](https://img.shields.io/badge/Google-Gemini_Vision-4285F4?style=flat-square&logo=google)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.35-red?style=flat-square&logo=streamlit)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+
+🌐 **Live Demo:** [Try it here](https://ai-nutritionist-00.streamlit.app/)
 
 ---
 
@@ -26,8 +28,8 @@ Snap a photo of any meal and instantly get calories, macros, a health score, and
 | Tool | Purpose |
 |------|---------|
 | Python | Core language |
-| Claude Vision API | Food recognition + nutrition analysis |
-| Pillow | Image processing + base64 encoding |
+| Google Gemini Vision API | Food recognition + nutrition analysis (free tier) |
+| Pillow | Image processing |
 | Streamlit | Web app UI + camera input |
 
 ---
@@ -36,8 +38,8 @@ Snap a photo of any meal and instantly get calories, macros, a health score, and
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/Navld14/ai-nutritionist.git
-cd ai-nutritionist
+git clone https://github.com/Navld14/AI-Nutritionist.git
+cd AI-Nutritionist
 ```
 
 ### 2. Install dependencies
@@ -45,14 +47,17 @@ cd ai-nutritionist
 pip install -r requirements.txt
 ```
 
-### 3. Set your API key
+### 3. Get a free Gemini API key
+- Go to [aistudio.google.com](https://aistudio.google.com)
+- Click **Get API Key → Create API key**
+- It's completely free
+
+### 4. Set your API key
 ```bash
-export ANTHROPIC_API_KEY=your_key_here
+export GEMINI_API_KEY="AIzaSy..."
 ```
 
-Get your free API key at [console.anthropic.com](https://console.anthropic.com)
-
-### 4. Run the app
+### 5. Run the app
 ```bash
 streamlit run app.py
 ```
@@ -64,9 +69,9 @@ streamlit run app.py
 ```
 Meal Photo (upload or camera)
         ↓
-Pillow → convert to JPEG → base64 encode
+Pillow → convert to JPEG bytes
         ↓
-Claude Vision API → identifies food + estimates nutrition
+Gemini Vision API → identifies food + estimates nutrition
         ↓
 Structured JSON response parsed
         ↓
@@ -75,31 +80,15 @@ Calories, macros, health score, advice displayed
 Meal added to daily food log
 ```
 
-Claude's multimodal vision model analyzes the image and returns structured nutritional data — no food database needed, works with any meal from any cuisine.
-
----
-
-## 📊 Output Example
-
-```
-Meal: Grilled Chicken with Rice and Vegetables
-Food Items: [grilled chicken breast, brown rice, broccoli, carrots]
-Calories: 520 kcal
-Protein: 45g | Carbs: 48g | Fat: 12g | Fiber: 8g
-Health Score: 9/10 — Excellent
-```
-
 ---
 
 ## 📁 Project Structure
 
 ```
-ai-nutritionist/
+AI-Nutritionist/
 │
 ├── app.py              # Main Streamlit application
 ├── requirements.txt    # Python dependencies
-├── .env.example        # Environment variable template
-├── .gitignore
 └── README.md
 ```
 
